@@ -12,6 +12,7 @@ export default function Signup() {
   const [password, setPassword] = useState('');
   const [university, setUniversity] = useState('');
   const [branch, setBranch] = useState('');
+  const [invite, setInvite] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -26,6 +27,7 @@ export default function Signup() {
       password,
       university,
       branch,
+      invite,
     };
 
     fetch('http://localhost:5000/api/users/signup', {
@@ -127,6 +129,20 @@ export default function Signup() {
               id="name"
               value={branch}
               onChange={(e) => setBranch(e.target.value)}
+            />
+          </div>
+          <br />
+          <div className="form-group">
+            <label className="control-label" htmlFor="name">
+              Invite Code (Optional)
+            </label>
+            <br />
+            <input
+              type="text"
+              className="form-control1"
+              id="name"
+              value={invite}
+              onChange={(e) => setInvite(e.target.value)}
             />
           </div>
           <br />

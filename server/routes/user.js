@@ -3,6 +3,8 @@ const multer = require('multer');
 
 const auth = require('./../middlewares/auth');
 
+const User = require('./../models/user.model');
+
 const crypto = require('crypto');
 
 const fsStorage = multer.diskStorage({
@@ -31,6 +33,7 @@ router.post(
 
 router.get('/user', auth, async (req, res) => {
   try {
+    console.log(req.user);
     return res.json(req.user);
   } catch (error) {}
 });
