@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import './Feed.css';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import InputOption from './InputOption';
 import Post from './Post';
@@ -9,6 +10,7 @@ import SubscriptionsIcon from '@material-ui/icons/Subscriptions';
 import EventNoteIcon from '@material-ui/icons/EventNote';
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import FlipMove from 'react-flip-move';
+import { Button } from '@material-ui/core';
 
 export default function Feed() {
   const [input, setInput] = useState('');
@@ -51,17 +53,10 @@ const getPatients = async (id)=>{
       <div className="feed__inputContainer">
         <div className="feed__input">
           <CreateIcon />
-          <form>
-            <input
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              type="text"
-              placeholder="Start a post"
-            />
-            <button onClick={sendPost} type="submit">
+         <Link to="/update"> <Button variant="contained">Post Something?</Button> </Link>
+            {/* <button onClick={sendPost} type="submit">
               Send
-            </button>
-          </form>
+            </button> */}
         </div>
         <div className="feed__inputOptions">
           <InputOption Icon={ImageIcon} title="Photo" color="#70B5F9" />

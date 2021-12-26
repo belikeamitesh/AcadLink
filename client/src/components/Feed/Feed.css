@@ -1,5 +1,5 @@
 .feed {
-    flex: 0.5;
+    flex: 0.7;
     margin: 0 20px;
 }
 
@@ -18,15 +18,14 @@
     padding: 10px;
     color: gray;
     padding-left: 15px;
-
 }
 
-.feed__input > form {
-    display: flex;
+.feed__input>form {
+    /* display: flex; */
     width: 100%;
 }
 
-.feed__input > form > input {
+.feed__input>form>input {
     border: none;
     flex: 1;
     margin-left: 10px;
@@ -34,26 +33,22 @@
     font-weight: 600;
 }
 
-.feed__input > form > button{
+.feed__input>form>button {
     display: none;
 }
 
-.feed__inputOptions{
-    display:flex;
+.feed__inputOptions {
+    display: flex;
     justify-content: space-evenly;
 }
 
 hr {
     margin-block-start: 16px;
     margin-block-end: 16px;
-    
 }
-
 
 @media screen and (max-width: 750px) {
     .feed_inputOptions {
-       
         font-size: 13px;
     }
-  
-  }
+}

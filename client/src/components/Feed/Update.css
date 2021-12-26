@@ -1,0 +1,28 @@
+.contain {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-div {
+    width: 600px;
+    height: 80vh;
+    margin: auto;
+    border: 1px solid black;
+    box-shadow: 5px 5px 15px;
+}
+
+.control-label {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 500px;
+    height: 70px;
+}
+
+.avatar {
+    border-radius: 50%;
+}
