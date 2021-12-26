@@ -6,7 +6,7 @@ const server = http.createServer(app);
 
 DB()
   .then(() => {
-    server.listen(5000, () => {
+    server.listen(process.env.PORT, () => {
       console.log('Server');
       // Implement socket.io
     });
