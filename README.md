@@ -20,3 +20,31 @@
 - **Amitesh Kumar** (Leader)   : IIIT Guwahati
 - **Prateek Kumar Sinha**     : Heritage Institute of Technology
 - **Rituparna Warwatkar**      : IIIT Guwahati
+
+ ### Contributors :
+<!-- readme: contributors -start -->
+<table>
+<tr>
+    <td align="center">
+        <a href="https://github.com/belikeamitesh">
+            <img src="https://avatars.githubusercontent.com/u/56907437?v=4" width="100;" alt="Priyanka7011"/>
+            <br />
+            <sub><b>Priyanka Kumari</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/rituparna-ui">
+            <img src="https://avatars.githubusercontent.com/u/54203587?v=4" width="100;" alt="rituparna-ui"/>
+            <br />
+            <sub><b>Manan Gyanchandani</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/prateek-sinha01">
+            <img src="https://avatars.githubusercontent.com/u/82904361?v=4" width="100;" alt="belikeamitesh"/>
+            <br />
+            <sub><b>Belikeamitesh</b></sub>
+        </a>
+    </td></tr>
+</table>
+<!-- readme: contributors -end -->
