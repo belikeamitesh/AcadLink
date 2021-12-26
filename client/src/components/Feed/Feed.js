@@ -15,7 +15,7 @@ import { Button } from '@material-ui/core';
 export default function Feed() {
   const [universities, setUniversities] = useState([]);
   const [branches, setBranches] = useState([]);
-  const [input, setInput] = useState('');
+  // const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
 
   function handleSearch() {
@@ -56,29 +56,11 @@ export default function Feed() {
     getPatients();
   }, []);
 
-  const getPatients = async (id) => {
-    try {
-      console.log(id);
-      const response = await axios.post(``);
-      console.log(response);
-      // const newp =patients.filter(patient => id!== patient.id);
-      // setPatients(newp);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  const sendPost = (e) => {
-    e.preventDefault();
-    setInput('');
-  };
 
   return (
     <div className="feed">
       <strong className="lit">Sort By : &nbsp;</strong>
       <select name="universities" id="university">
-        {/* <option value="IITG">IIT Guwahati</option>
-            <option value="IITK">IIT Kanpur</option> */}
         {universities.map((x) => {
           return <option className="opt" value={x}>{x}</option>;
         })}
