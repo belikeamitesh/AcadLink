@@ -54,9 +54,11 @@ export default function Feed() {
         <div className="feed__input">
           <CreateIcon />
          <Link to="/update"> <Button variant="contained">Post Something?</Button> </Link>
-            {/* <button onClick={sendPost} type="submit">
-              Send
-            </button> */}
+         <Button variant="contained">Choose a University:</Button>
+         <select name="universities" id="universities">
+           <option value="IITG">IIT Guwahati</option>
+           <option value="IITK">IIT Kanpur</option>
+          </select>
         </div>
         <div className="feed__inputOptions">
           <InputOption Icon={ImageIcon} title="Photo" color="#70B5F9" />
