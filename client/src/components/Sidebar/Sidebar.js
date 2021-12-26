@@ -14,6 +14,8 @@ export default function Sidebar() {
 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [university, setUniversity] = useState('');
+  const [classn, setClassn] = useState('');
   const [profile, setProfile] = useState('');
 
   axios
@@ -26,6 +28,8 @@ export default function Sidebar() {
       const { data } = res;
       setEmail(data.email);
       setName(data.name);
+      setUniversity(data.university);
+      setClassn(data.branch);
       setProfile(data.profile);
     });
   return (
@@ -42,6 +46,8 @@ export default function Sidebar() {
           Amitesh
         </Avatar>
         <h2>{name} </h2>
+        <h4>{classn}</h4>
+        <h4>{university}</h4>
         <h4>{email}</h4>
       </div>
 

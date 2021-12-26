@@ -22,6 +22,10 @@
     margin-right: 10px;
 }
 
+.header__h2 {
+    color: gray;
+}
+
 .header__search {
     padding: 10px;
     display: flex;

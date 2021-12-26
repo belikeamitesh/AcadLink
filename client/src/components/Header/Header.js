@@ -26,6 +26,7 @@ function Header() {
         <div className="header__search">
           <SearchIcon style={{ color: 'black' }} />
           <input type="text" placeholder="Search" />
+          <h3 className="header__h2">Welcome to AcadLink</h3>
         </div>
       </div>
 
