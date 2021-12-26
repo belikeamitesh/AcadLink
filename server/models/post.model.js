@@ -21,7 +21,7 @@ const postSchema = new mongoose.Schema(
     },
     postpic: {
       type: String,
-      required: true,
+      // required: true,
     },
   },
   {

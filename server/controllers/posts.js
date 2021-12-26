@@ -38,7 +38,7 @@ exports.createNewPost = async (req, res, next) => {
       achievement,
       exp,
       status,
-      postpic: '/public/' + req.file.path,
+      // postpic: '/public/' + req.file.path,
       author: req.user._id,
     });
     req.user.posts.push(newPost._id);

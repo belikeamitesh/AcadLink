@@ -1,15 +1,14 @@
 import './Update.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ManAvatar from '../logo.png';
+import ManAvatar from '../../logo.png';
 // import Button from 'react-bootstrap/Button';
 import { Button } from '@material-ui/core';
 import { useState } from 'react';
 
-export default function Update() {
-  const [exp, setExp] = useState('');
-  const [achievements, setAchievements] = useState('');
-  const [status, setStatus] = useState('');
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -17,23 +16,24 @@ export default function Update() {
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
+
     const kek = {
-      achievement: achievements,
-      exp: exp,
-      status: status,
+      email,
+      password,
     };
-    console.log(kek);
-    fetch('http://localhost:5000/api/posts', {
+
+    fetch('http://localhost:5000/api/users/login', {
       method: 'POST',
       body: JSON.stringify(kek),
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzg4YzljMTcwZDdhMzBjNmY2ODlhNyIsImlhdCI6MTY0MDUzMzE3MX0.epjkVmlwmJmuWKUqArmqVn0dL0KSFtXLb2UKrQhuR-I',
       },
     })
       .then((res) => {
-        console.log('posted');
+        return res.json();
+      })
+      .then((res) => {
+        localStorage.setItem('token', res.token);
       })
       .catch((err) => {
         console.log(err.message);
@@ -55,45 +55,34 @@ export default function Update() {
           </div>
           <br />
           <div className="form-group">
-            <label className="control-label" htmlFor="name">
-              Your Achievements
-            </label>
-            <br />
-            <textarea
-              type="text"
-              className="form-control"
-              id="name"
-              value={achievements}
-              onChange={(e) => setAchievements(e.target.value)}
-            />
+            <div className="form-group">
+              <label className="control-label" htmlFor="name">
+                email
+              </label>
+              <br />
+              <input
+                type="email"
+                className="form-control"
+                id="name"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="control-label" htmlFor="name">
+                Password
+              </label>
+              <br />
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
           </div>
           <br />
-
-          <div className="form-group">
-            <label className="control-label" htmlFor="projects">
-              Your Experience/Projects
-            </label>
-            <br />
-            <textarea
-              type="text"
-              className="form-control"
-              id="name"
-              value={exp}
-              onChange={(e) => setExp(e.target.value)}
-            />
-          </div>
-          <br />
-          <label className="control-label" htmlFor="status">
-            Your Status
-          </label>
-          <br />
-          <textarea
-            type="text"
-            className="form-control"
-            id="name"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-          />
         </div>
         <br />
 

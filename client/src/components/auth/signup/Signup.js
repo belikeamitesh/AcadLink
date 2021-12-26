@@ -1,15 +1,17 @@
 import './Update.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ManAvatar from '../logo.png';
+import ManAvatar from '../../logo.png';
 // import Button from 'react-bootstrap/Button';
 import { Button } from '@material-ui/core';
 import { useState } from 'react';
 
-export default function Update() {
-  const [exp, setExp] = useState('');
-  const [achievements, setAchievements] = useState('');
-  const [status, setStatus] = useState('');
+export default function Signup() {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [university, setUniversity] = useState('');
+  const [branch, setBranch] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -17,19 +19,20 @@ export default function Update() {
   const handleSubmit = () => {
     setLoading(true);
     setIsError(false);
+
     const kek = {
-      achievement: achievements,
-      exp: exp,
-      status: status,
+      name: username,
+      email,
+      password,
+      university,
+      branch,
     };
-    console.log(kek);
-    fetch('http://localhost:5000/api/posts', {
+
+    fetch('http://localhost:5000/api/users/signup', {
       method: 'POST',
       body: JSON.stringify(kek),
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzg4YzljMTcwZDdhMzBjNmY2ODlhNyIsImlhdCI6MTY0MDUzMzE3MX0.epjkVmlwmJmuWKUqArmqVn0dL0KSFtXLb2UKrQhuR-I',
       },
     })
       .then((res) => {
@@ -56,44 +59,70 @@ export default function Update() {
           <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
-              Your Achievements
+              Name
             </label>
             <br />
-            <textarea
+            <input
               type="text"
               className="form-control"
               id="name"
-              value={achievements}
-              onChange={(e) => setAchievements(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <br />
-
           <div className="form-group">
-            <label className="control-label" htmlFor="projects">
-              Your Experience/Projects
+            <label className="control-label" htmlFor="name">
+              email
             </label>
             <br />
-            <textarea
+            <input
+              type="email"
+              className="form-control"
+              id="name"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label className="control-label" htmlFor="name">
+              Password
+            </label>
+            <br />
+            <input
               type="text"
               className="form-control"
               id="name"
-              value={exp}
-              onChange={(e) => setExp(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label className="control-label" htmlFor="name">
+              University
+            </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={university}
+              onChange={(e) => setUniversity(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label className="control-label" htmlFor="name">
+              Branch
+            </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={branch}
+              onChange={(e) => setBranch(e.target.value)}
             />
           </div>
           <br />
-          <label className="control-label" htmlFor="status">
-            Your Status
-          </label>
-          <br />
-          <textarea
-            type="text"
-            className="form-control"
-            id="name"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-          />
         </div>
         <br />
 

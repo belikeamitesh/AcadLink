@@ -1,6 +1,8 @@
 const express = require('express');
 const multer = require('multer');
 
+const auth = require('./../middlewares/auth');
+
 const crypto = require('crypto');
 
 const fsStorage = multer.diskStorage({
@@ -13,7 +15,6 @@ const fsStorage = multer.diskStorage({
 });
 
 const { createUser, login, uploadImage } = require('../controllers/user');
-const auth = require('./../middlewares/auth');
 
 const router = express.Router();
 
@@ -27,5 +28,11 @@ router.post(
   }).single('profile'),
   uploadImage
 );
+
+router.get('/user', auth, async (req, res) => {
+  try {
+    return res.json(req.user);
+  } catch (error) {}
+});
 
 module.exports = router;

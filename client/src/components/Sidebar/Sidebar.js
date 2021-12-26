@@ -1,6 +1,8 @@
 import { Avatar } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import './Sidebar.css';
+
+import axios from 'axios';
 
 export default function Sidebar() {
   const recentItem = (topic) => (
@@ -10,6 +12,22 @@ export default function Sidebar() {
     </div>
   );
 
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [profile, setProfile] = useState('');
+
+  axios
+    .get('http://localhost:5000/api/users/user', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+    .then((res) => {
+      const { data } = res;
+      setEmail(data.email);
+      setName(data.name);
+      setProfile(data.profile);
+    });
   return (
     <div className="sidebar">
       <div className="sidebar__top">
@@ -18,13 +36,13 @@ export default function Sidebar() {
           alt="background"
         />
         <Avatar
-          src="https://image.pngaaa.com/294/1274294-middle.png"
+          src={'http://localhost:5000' + profile}
           className="sidebar__avatar"
         >
           Amitesh
         </Avatar>
-        <h2>Amitesh Kumar</h2>
-        <h4>amitesh.kumar@iiitg.ac.in</h4>
+        <h2>{name} </h2>
+        <h4>{email}</h4>
       </div>
 
       <div className="sidebar__stats">

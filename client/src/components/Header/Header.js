@@ -8,7 +8,15 @@ import ChatIcon from '@material-ui/icons/Chat';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import Logo from '../logo.png';
 
+
 function Header() {
+  // const history = useHistory();
+
+  function logout() {
+    localStorage.setItem('token', '');
+    // history.replace('/');
+  }
+
   return (
     <div className="header">
       <div className="header__left">
@@ -25,7 +33,7 @@ function Header() {
         <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
         <HeaderOption Icon={AccountBalanceIcon} title="Universities" />
         <HeaderOption Icon={ChatIcon} title="Messaging" />
-        <HeaderOption avatar={true} title="Log Out" />
+        <HeaderOption avatar={true} onClick={logout} title="Log Out" />
       </div>
     </div>
   );
