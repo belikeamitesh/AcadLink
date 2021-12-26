@@ -60,7 +60,7 @@ export default function Signup() {
             />
           </div>
           <br />
-          <h1>Sign up for AcadLink </h1>
+          <h3>Sign up for AcadLink </h3>
           <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
