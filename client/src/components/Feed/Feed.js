@@ -75,12 +75,12 @@ export default function Feed() {
 
   return (
     <div className="feed">
-      <strong>Sort By : &nbsp;</strong>
+      <strong className="lit">Sort By : &nbsp;</strong>
       <select name="universities" id="university">
         {/* <option value="IITG">IIT Guwahati</option>
             <option value="IITK">IIT Kanpur</option> */}
         {universities.map((x) => {
-          return <option value={x}>{x}</option>;
+          return <option className="opt" value={x}>{x}</option>;
         })}
         {branches.map((x) => {
           return <option value={x}>{x}</option>;

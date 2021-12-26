@@ -11,6 +11,13 @@
     margin-bottom: 20px;
 }
 
+.lit {}
+
+.opt {
+    width: 100%;
+    height: 100px;
+}
+
 .feed__input {
     border: 1px solid lightgray;
     border-radius: 30px;

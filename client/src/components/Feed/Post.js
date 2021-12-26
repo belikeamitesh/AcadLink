@@ -24,12 +24,14 @@ const Post = forwardRef(
         </div>
 
         <div className="post__body">
-          <h3>My Achievements</h3>
-          <hr />
+          <h4>Hi I am {name}</h4>
+          <br />
+          <h4 className="ach">My Achievements</h4>
+          <br />
           <p>{achievement}</p>
           <br />
-          <h3>My Project/Experieces</h3>
-          <hr />
+          <h4 className="ach">My Project/Experieces</h4>
+          <br />
           <p>{experience}</p>
           <br />
         </div>
