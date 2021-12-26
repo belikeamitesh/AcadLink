@@ -17,6 +17,8 @@ export default function Sidebar() {
   const [university, setUniversity] = useState('');
   const [classn, setClassn] = useState('');
   const [profile, setProfile] = useState('');
+  const [invite, setInvite] = useState('');
+  const [inviteCount, setInviteCount] = useState('');
 
   axios
     .get('http://localhost:5000/api/users/user', {
@@ -31,6 +33,8 @@ export default function Sidebar() {
       setUniversity(data.university);
       setClassn(data.branch);
       setProfile(data.profile);
+      setInvite(data.inviteCode);
+      setInviteCount(data.inviteCounts);
     });
   return (
     <div className="sidebar">

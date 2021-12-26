@@ -33,6 +33,18 @@ const userSchema = new mongoose.Schema({
     ref: 'Post',
     default: [],
   },
+  inviteCode: {
+    type: Number,
+    default: Date.now().toString().slice(7),
+  },
+  invitedBy: {
+    type: String,
+    ref: 'User',
+  },
+  inviteCounts: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model('User', userSchema);
