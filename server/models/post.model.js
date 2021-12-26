@@ -19,6 +19,10 @@ const postSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
+    postpic: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
