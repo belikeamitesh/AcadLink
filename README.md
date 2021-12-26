@@ -4,6 +4,10 @@
  <img width:"30px" height: "30xp" src="./logo.png" alt="logo">
  </div>.
 
+## Try it out
+
+https://acadlink.netlify.app/
+
 ## What it does?
 
 * `This project is a web-based application aimed at making a platform where programming students can use it to capture their work based experiences and share learning experiences with others through texts, photos and videos.`
