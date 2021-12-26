@@ -1,7 +1,7 @@
 # AcadLink
 
 <div align="center">
- <img src="./logo.png" alt="logo">
+ <img width:"30px" height: "30xp" src="./logo.png" alt="logo">
  </div>.
 
 ## What it does?
