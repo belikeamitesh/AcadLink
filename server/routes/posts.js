@@ -20,8 +20,36 @@ const {
 } = require('../controllers/posts');
 
 const auth = require('../middlewares/auth');
+const User = require('../models/user.model');
 
 const router = express.Router();
+router.get('/filters', async (req, res) => {
+  const univList = await User.find().select('university branch');
+  const toSend = {
+    univs: [],
+    branches: [],
+  };
+  for (const univ of univList) {
+    toSend.univs.push(univ.university);
+    toSend.branches.push(univ.branch);
+  }
+  return res.json(toSend);
+});
+
+router.get('/filter', async (req, res) => {
+  const search = req.query.search;
+  const posts = await Post.find({
+    $or: [
+      {
+        univ: search,
+      },
+      {
+        branch: search,
+      },
+    ],
+  }).populate('author');
+  return res.json(posts);
+});
 
 router
   .route('/')
@@ -35,12 +63,5 @@ router
   );
 
 router.route('/:id').get(getPostById).delete(auth, deletePost);
-
-router.get('/filter', async (req, res) => {
-  const query = req.query.univ;
-  console.log(query);
-  const univList = await Post.find({ university: query }).populate('author');
-  return res.json(univList);
-});
 
 module.exports = router;

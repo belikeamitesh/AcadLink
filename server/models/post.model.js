@@ -23,6 +23,14 @@ const postSchema = new mongoose.Schema(
       type: String,
       // required: true,
     },
+    univ: {
+      type: String,
+      required: true,
+    },
+    branch: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
