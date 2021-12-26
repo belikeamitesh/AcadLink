@@ -19,6 +19,7 @@ export default function Sidebar() {
   const [profile, setProfile] = useState('');
   const [invite, setInvite] = useState('');
   const [inviteCount, setInviteCount] = useState('');
+  const [invitedBy, setInvitedBy] = useState('');
 
   axios
     .get('http://localhost:5000/api/users/user', {
@@ -35,6 +36,7 @@ export default function Sidebar() {
       setProfile(data.profile);
       setInvite(data.inviteCode);
       setInviteCount(data.inviteCounts);
+      setInvitedBy(data.invitedBy.name);
     });
   return (
     <div className="sidebar">
@@ -57,12 +59,19 @@ export default function Sidebar() {
 
       <div className="sidebar__stats">
         <div className="sidebar__stat">
-          <p>Who viewed your profile</p>
-          <p className="sidebar__statNumber">126</p>
+          <p>Bonus Points :</p>
+          <p className="sidebar__statNumber">{inviteCount * 10}</p>
+        </div>
+
+        <div className="sidebar__stat">
+          <p>Invited By</p>
+          <p className="sidebar__statNumber">
+            {invitedBy ? invitedBy : 'None'}
+          </p>
         </div>
         <div className="sidebar__stat">
-          <p>Views of your post</p>
-          <p className="sidebar__statNumber">67</p>
+          <p>Your Invite Code</p>
+          <p className="sidebar__statNumber">{invite}</p>
         </div>
       </div>
 
