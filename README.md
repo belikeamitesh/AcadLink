@@ -1,5 +1,9 @@
 # AcadLink
 
+<div align="center">
+ <img src="./logo.png" alt="logo">
+ </div>.
+
 ## What it does?
 
 * `This project is a web-based application aimed at making a platform where programming students can use it to capture their work based experiences and share learning experiences with others through texts, photos and videos.`
