@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import HeaderOption from './HeaderOption';
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,7 +7,6 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ChatIcon from '@material-ui/icons/Chat';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import Logo from '../logo.png';
-
 
 function Header() {
   // const history = useHistory();

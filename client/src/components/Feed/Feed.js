@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Feed.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import InputOption from './InputOption';
 import Post from './Post';
@@ -13,8 +13,26 @@ import FlipMove from 'react-flip-move';
 import { Button } from '@material-ui/core';
 
 export default function Feed() {
+  const [universities, setUniversities] = useState([]);
+  const [branches, setBranches] = useState([]);
   const [input, setInput] = useState('');
   const [posts, setPosts] = useState([]);
+
+  function handleSearch() {
+    const univ = document.getElementById('university');
+    let url = new URL('http://localhost:5000/api/posts/filter');
+    url.searchParams.append('search', univ.value);
+
+    fetch(url.href)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        // console.log(res);
+        setPosts(res);
+      });
+    // console.log(url.href);
+  }
 
   useEffect(() => {
     const getPatients = async () => {
@@ -24,6 +42,13 @@ export default function Feed() {
         const myPatients = response.data;
         console.log(myPatients);
         setPosts(myPatients);
+        const { data: listData } = await axios.get(
+          'http://localhost:5000/api/posts/filters'
+        );
+        setUniversities(listData.univs);
+        setBranches(listData.branches);
+        console.log(listData.branches);
+        console.log(listData.univs);
       } catch (err) {
         console.log(err);
       }
@@ -50,15 +75,28 @@ export default function Feed() {
 
   return (
     <div className="feed">
+      <strong>Sort By : &nbsp;</strong>
+      <select name="universities" id="university">
+        {/* <option value="IITG">IIT Guwahati</option>
+            <option value="IITK">IIT Kanpur</option> */}
+        {universities.map((x) => {
+          return <option value={x}>{x}</option>;
+        })}
+        {branches.map((x) => {
+          return <option value={x}>{x}</option>;
+        })}
+      </select>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <Button variant="contained" onClick={handleSearch}>
+        Search
+      </Button>
       <div className="feed__inputContainer">
         <div className="feed__input">
           <CreateIcon />
-         <Link to="/update"> <Button variant="contained">Post Something?</Button> </Link>
-         <Button variant="contained">Choose a University:</Button>
-         <select name="universities" id="universities">
-           <option value="IITG">IIT Guwahati</option>
-           <option value="IITK">IIT Kanpur</option>
-          </select>
+          <Link to="/update">
+            {' '}
+            <Button variant="contained">Post Something?</Button>{' '}
+          </Link>
         </div>
         <div className="feed__inputOptions">
           <InputOption Icon={ImageIcon} title="Photo" color="#70B5F9" />
@@ -72,7 +110,6 @@ export default function Feed() {
         </div>
       </div>
       <hr />
-
       {/* Posts */}
       <FlipMove>
         {posts.map((post) => (
