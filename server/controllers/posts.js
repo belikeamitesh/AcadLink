@@ -6,10 +6,7 @@ exports.getAllPosts = async (req, res, next) => {
       'author',
       'name email university branch profile'
     );
-    return res.status(200).json({
-      message: 'Posts Fetched',
-      posts,
-    });
+    return res.status(200).json(posts);
   } catch (error) {
     const err = new Error('Failed to fetch');
     err.statusCode = 500;
