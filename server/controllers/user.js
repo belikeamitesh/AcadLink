@@ -5,7 +5,27 @@ const User = require('./../models/user.model');
 
 exports.createUser = async (req, res, next) => {
   try {
-    const { name, email, password, university, branch } = req.body;
+    const { name, email, password, university, branch, invite } = req.body;
+    console.log(!!invite);
+    if (!!invite) {
+      const invitee = await User.findOne({ inviteCode: invite });
+      if (invitee) {
+        invitee.inviteCounts++;
+        await invitee.save();
+      }
+      const hashedPassword = await bcrypt.hash(password, 12);
+      const user = await User.create({
+        name,
+        email,
+        university,
+        branch,
+        password: hashedPassword,
+        invitedBy: invitee._id,
+      });
+      return res.status(201).json({
+        message: 'User created',
+      });
+    }
     const hashedPassword = await bcrypt.hash(password, 12);
     const user = await User.create({
       name,
