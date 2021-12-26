@@ -40,6 +40,8 @@ exports.createNewPost = async (req, res, next) => {
       status,
       // postpic: '/public/' + req.file.path,
       author: req.user._id,
+      univ: req.user.university,
+      branch: req.user.branch,
     });
     req.user.posts.push(newPost._id);
     await req.user.save();
