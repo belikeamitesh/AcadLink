@@ -22,7 +22,7 @@ export default function Login() {
       password,
     };
 
-    fetch('http://localhost:5000/api/users/login', {
+    fetch('https://acadlink.herokuapp.com/api/users/login', {
       method: 'POST',
       body: JSON.stringify(kek),
       headers: {

@@ -20,7 +20,7 @@ export default function Feed() {
 
   function handleSearch() {
     const univ = document.getElementById('university');
-    let url = new URL('http://localhost:5000/api/posts/filter');
+    let url = new URL('https://acadlink.herokuapp.com/api/posts/filter');
     url.searchParams.append('search', univ.value);
 
     fetch(url.href)
@@ -37,13 +37,13 @@ export default function Feed() {
   useEffect(() => {
     const getPatients = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/posts');
+        const response = await axios.get('https://acadlink.herokuapp.com/api/posts');
         // console.log(response);
         const myPatients = response.data;
         console.log(myPatients);
         setPosts(myPatients);
         const { data: listData } = await axios.get(
-          'http://localhost:5000/api/posts/filters'
+          'https://acadlink.herokuapp.com/api/posts/filters'
         );
         setUniversities(listData.univs);
         setBranches(listData.branches);
@@ -80,8 +80,7 @@ export default function Feed() {
         <div className="feed__input">
           <CreateIcon />
           <Link to="/update">
-            {' '}
-            <Button variant="contained">Post Something?</Button>{' '}
+            <Button variant="contained">Post Something?</Button>
           </Link>
         </div>
         <div className="feed__inputOptions">

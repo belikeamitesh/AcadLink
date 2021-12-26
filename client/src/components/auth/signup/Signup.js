@@ -30,7 +30,7 @@ export default function Signup() {
       invite,
     };
 
-    fetch('http://localhost:5000/api/users/signup', {
+    fetch('https://acadlink.herokuapp.com/api/users/signup', {
       method: 'POST',
       body: JSON.stringify(kek),
       headers: {

@@ -19,10 +19,9 @@ export default function Sidebar() {
   const [profile, setProfile] = useState('');
   const [invite, setInvite] = useState('');
   const [inviteCount, setInviteCount] = useState('');
-  const [invitedBy, setInvitedBy] = useState('');
 
   axios
-    .get('http://localhost:5000/api/users/user', {
+    .get('https://acadlink.herokuapp.com/api/users/user', {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -36,7 +35,7 @@ export default function Sidebar() {
       setProfile(data.profile);
       setInvite(data.inviteCode);
       setInviteCount(data.inviteCounts);
-      setInvitedBy(data.invitedBy.name);
+      // data.invitedBy.name?setInvitedBy(data.invitedBy.name):setInvitedBy('None');
     });
   return (
     <div className="sidebar">
@@ -46,7 +45,7 @@ export default function Sidebar() {
           alt="background"
         />
         <Avatar
-          src={'http://localhost:5000' + profile}
+          src={'https://acadlink.herokuapp.com' + profile}
           className="sidebar__avatar"
         >
           Amitesh
@@ -64,9 +63,9 @@ export default function Sidebar() {
         </div>
 
         <div className="sidebar__stat">
-          <p>Invited By</p>
+          <p>Profile Views</p>
           <p className="sidebar__statNumber">
-            {invitedBy ? invitedBy : 'None'}
+            1266
           </p>
         </div>
         <div className="sidebar__stat">

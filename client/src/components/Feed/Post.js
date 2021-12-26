@@ -15,7 +15,7 @@ const Post = forwardRef(
     return (
       <div ref={ref} className="post">
         <div className="post__header">
-          <Avatar src={'http://localhost:5000' + photoUrl}>{name}</Avatar>
+          <Avatar src={'https://acadlink.herokuapp.com' + photoUrl}>{name}</Avatar>
           <div className="post__info">
             <h2>{name}</h2>
             <p>{university}</p>

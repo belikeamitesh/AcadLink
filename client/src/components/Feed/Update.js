@@ -23,7 +23,7 @@ export default function Update() {
       status: status,
     };
     console.log(kek);
-    fetch('http://localhost:5000/api/posts', {
+    fetch('https://acadlink.herokuapp.com/api/posts', {
       method: 'POST',
       body: JSON.stringify(kek),
       headers: {
