@@ -56,3 +56,21 @@ https://acadlink.netlify.app/
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
+
+## Some Screenshots from the App
+<div align="center">
+ <h3>Home Page </h3>
+ <img width:"30px" height: "30xp" src="./home.jpeg" alt="logo">
+ </div>
+ <div align="center">
+ <h3>Sign Up Page </h3>
+ <img width:"30px" height: "30xp" src="./signup.jpeg" alt="logo">
+ </div>
+ <div align="center">
+ <h3>Login Page </h3>
+ <img width:"30px" height: "30xp" src="./login.jpeg" alt="logo">
+ </div>
+ <div align="center">
+ <h3>Create a Post Page </h3>
+ <img width:"30px" height: "30xp" src="./post.jpeg" alt="logo">
+ </div>
