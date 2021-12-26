@@ -14,5 +14,5 @@ Users can create accounts, join different classrooms, earn referral points. Ther
 
 ## Team members
 - **Amitesh Kumar** (Leader)   : IIIT Guwahati
-- **Prateek Kuumar Sinha**     : Heritage Institute of Technology
+- **Prateek Kumar Sinha**     : Heritage Institute of Technology
 - **Rituparna Warwatkar**      : IIIT Guwahati
