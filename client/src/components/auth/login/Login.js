@@ -1,4 +1,4 @@
-import './Update.css';
+import './login.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ManAvatar from '../../logo.png';
@@ -34,6 +34,7 @@ export default function Login() {
       })
       .then((res) => {
         localStorage.setItem('token', res.token);
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err.message);
@@ -42,9 +43,9 @@ export default function Login() {
       });
   };
   return (
-    <div className="contain">
+    <div className="contain2">
       <div className="p">
-        <div className="form-div">
+        <div className="form-div2">
           <div>
             <img
               className="avatar"
@@ -54,20 +55,23 @@ export default function Login() {
             />
           </div>
           <br />
+          <h1>Sign In </h1>
+          <br />
           <div className="form-group">
             <div className="form-group">
               <label className="control-label" htmlFor="name">
-                email
+                Email
               </label>
               <br />
               <input
                 type="email"
-                className="form-control"
+                className="form-control2"
                 id="name"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
+            <br />
             <div className="form-group">
               <label className="control-label" htmlFor="name">
                 Password
@@ -75,7 +79,7 @@ export default function Login() {
               <br />
               <input
                 type="text"
-                className="form-control"
+                className="form-control2"
                 id="name"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -103,9 +107,9 @@ export default function Login() {
           </Button>
         </Link>
 
-        <Link to="/" className="n">
+        <Link to="/signup" className="n">
           <Button type="submit" variant="contained" className="btn mt-4">
-            Go Back
+            Sign Up?
           </Button>
         </Link>
       </div>

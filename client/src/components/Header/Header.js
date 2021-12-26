@@ -14,6 +14,7 @@ function Header() {
 
   function logout() {
     localStorage.setItem('token', '');
+    window.location.reload();
     // history.replace('/');
   }
 

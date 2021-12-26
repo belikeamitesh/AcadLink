@@ -29,11 +29,12 @@ export default function Update() {
       headers: {
         'Content-Type': 'application/json',
         Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYzg4YzljMTcwZDdhMzBjNmY2ODlhNyIsImlhdCI6MTY0MDUzMzE3MX0.epjkVmlwmJmuWKUqArmqVn0dL0KSFtXLb2UKrQhuR-I',
+        `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then((res) => {
         console.log('posted');
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err.message);

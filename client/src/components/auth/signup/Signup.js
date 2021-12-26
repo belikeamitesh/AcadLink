@@ -1,4 +1,4 @@
-import './Update.css';
+import './signup.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ManAvatar from '../../logo.png';
@@ -37,6 +37,7 @@ export default function Signup() {
     })
       .then((res) => {
         console.log('posted');
+        window.location.assign('http://localhost:3000/');
       })
       .catch((err) => {
         console.log(err.message);
@@ -45,9 +46,9 @@ export default function Signup() {
       });
   };
   return (
-    <div className="contain">
+    <div className="contain1">
       <div className="p">
-        <div className="form-div">
+        <div className="form-div1">
           <div>
             <img
               className="avatar"
@@ -57,6 +58,8 @@ export default function Signup() {
             />
           </div>
           <br />
+          <h1>Sign up for AcadLink </h1>
+          <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
               Name
@@ -64,25 +67,27 @@ export default function Signup() {
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control1"
               id="name"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
+          <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
-              email
+              Email
             </label>
             <br />
             <input
               type="email"
-              className="form-control"
+              className="form-control1"
               id="name"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
               Password
@@ -90,12 +95,13 @@ export default function Signup() {
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control1"
               id="name"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+          <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
               University
@@ -103,12 +109,13 @@ export default function Signup() {
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control1"
               id="name"
               value={university}
               onChange={(e) => setUniversity(e.target.value)}
             />
           </div>
+          <br />
           <div className="form-group">
             <label className="control-label" htmlFor="name">
               Branch
@@ -116,7 +123,7 @@ export default function Signup() {
             <br />
             <input
               type="text"
-              className="form-control"
+              className="form-control1"
               id="name"
               value={branch}
               onChange={(e) => setBranch(e.target.value)}
@@ -125,7 +132,6 @@ export default function Signup() {
           <br />
         </div>
         <br />
-
         {isError && (
           <small className="mt-4 d-inline-block text-danger">
             Something went wrong. Please try again later.
@@ -142,10 +148,11 @@ export default function Signup() {
             {loading ? 'Loading...' : 'Submit'}
           </Button>
         </Link>
-
-        <Link to="/" className="n">
+        <br />
+        <br />
+        <Link to="/login" className="n">
           <Button type="submit" variant="contained" className="btn mt-4">
-            Go Back
+            Already Have an account? Sign In
           </Button>
         </Link>
       </div>
