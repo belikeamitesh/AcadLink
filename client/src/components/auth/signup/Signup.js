@@ -39,7 +39,7 @@ export default function Signup() {
     })
       .then((res) => {
         console.log('posted');
-        window.location.assign('http://localhost:3000/');
+        window.location.assign('https://acadlink.netlify.app/');
       })
       .catch((err) => {
         console.log(err.message);
