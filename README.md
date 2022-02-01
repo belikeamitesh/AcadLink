@@ -10,7 +10,7 @@ https://acadlink.netlify.app/
 
 ## What it does?
 
-* `This project is a web-based application aimed at making a platform where programming students can use it to capture their work based experiences and share learning experiences with others through texts, photos and videos.`
+* `This project is a web-based application aimed at making a platform where college students can use it to capture their work based experiences and share learning experiences with others through texts, photos and videos.`
 
 * `This way, the app not only creates new relationship between students but also allows others to see what they are doing and how they did it and take help from it.`
 
